@@ -64,32 +64,4 @@ for i in ans_lst:
     print()
 
 
-# lst2 = []
-# for i in range(0,len(ans_lst)):
-#     if 'X' not in ans_lst[i]:
-#         lst2.append(i)
-#
-# for i in lst2:
-#
-# lst2.reverse()
-# for i in lst2:
-#     ans_lst.pop(i)
-#
-# lst2 = []
-# for i in range(len(ans_lst[0])):
-#     cnt = 0
-#     for j in range(len(ans_lst)):
-#         if ans_lst[j][i] == '.':
-#             cnt += 1
-#     if cnt == len(ans_lst):
-#         lst2.append(i)
-#
-# lst2.reverse()
-#
-# for i in lst2:
-#     for j in ans_lst:
-#         j.pop(i)
-#
-#
-# for i in ans_lst:
-#     print(i)
+
