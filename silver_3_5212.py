@@ -25,7 +25,6 @@ for i in range(R):
                 ans_lst[i][j] = '.'
 
 
-
 while True:
     if len(ans_lst) ==0 or len(ans_lst[0]) == 0:
         break
