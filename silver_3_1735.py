@@ -19,3 +19,4 @@ for x in lst:
         ans2 /= x
 
 print(int(ans1), int(ans2))
+
