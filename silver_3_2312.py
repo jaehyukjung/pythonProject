@@ -21,7 +21,9 @@ for _ in range(testcase):
     while i < len(lst):
         if N % lst[i] == 0:
             dic[lst[i]] += 1
-            N = N / lst[i]
+            N = N // lst[i]
+            if N == 1:
+                break
         else:
             i += 1
 
