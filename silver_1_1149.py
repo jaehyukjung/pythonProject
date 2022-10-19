@@ -5,7 +5,7 @@ if __name__ == '__main__':
 
 
     arr2 = []
-    for i in range(3):
+    for i in range(n): # 이것 때문에 계속 런타임 오류 뜬것
         arr2 = list(map(int, input().split()))
         RGB.append(arr2)
 
