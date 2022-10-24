@@ -12,5 +12,4 @@ if __name__ == "__main__":
 
     for _ in range(M):
         x1,y1,x2,y2 = map(int, input().split())
-        print(sum[x2][y2] - sum[x1-1][y2] - sum[x2][y1-1] + sum[x1-1][y1-1])
-
+        print(sum[x2][y2] - sum[x1-1][y2] - sum[x2][y1-1] + sum[x1-1][y1-1]) # 흐름
