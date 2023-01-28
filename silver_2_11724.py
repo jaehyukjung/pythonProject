@@ -1,33 +1,32 @@
-def bfs(si,ei):
-    q = list(filter(lambda x: x[0] == si, lst))
-    c1, c2 = 0, 0
+def bfs(si):
+    q = [si]
+    v[si] = True
     while q:
-        c1, c2 = q.pop(0)
-        if c1 == ei:
-            return
-        if c1 in arr:
-            arr.remove(c1)
-        if c2 in arr:
-            arr.remove(c2)
-            node_lst = list(filter(lambda x : x[0] == c2 and x[1] in arr, lst))
-            q.extend(node_lst)
-    return
+        node = q.pop(0)
+        for i in graph[node]:
+            if not v[i]:
+                v[i] = True
+                q.append(i)
+
 
 if __name__ == "__main__":
     N, M = map(int, input().split())
-    lst = []
+    graph = [[] for _ in range((N+1))]
     for i in range(M):
         n1,n2 = map(int, input().split())
-        if n1 > n2:
-            temp = n2
-            n2 = n1
-            n1 = temp
-        lst.append((n1,n2))
+        graph[n1].append(n2)
+        graph[n2].append(n1)
 
-    arr = [i+1 for i in range(N)]
+    v = [False for _ in range(N+1)]
     count = 0
-    while arr:
-        bfs(arr.pop(0),6)
-        count += 1
+
+    for i in range(1,N+1):
+        if v[i] == False:
+            if not graph[i]:
+                count += 1
+                v[i] =True
+            else:
+                bfs(i)
+                count +=1
 
     print(count)
