@@ -1,5 +1,6 @@
 from collections import deque
-
+import sys
+sys.setrecursionlimit(10000)
 if __name__ == "__main__":
     M, N = map(int, input().split())
     arr = [list(map(int,input().split())) for _ in range(N)]
