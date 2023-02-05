@@ -3,6 +3,7 @@ from collections import deque
 
 def bfs(si):
     v = [0 for _ in range(N+1)]
+
     v[si] = 1
     q = deque()
     q.append(si)
