@@ -23,6 +23,7 @@ def bfs(si, sj):
                         v[ni][nj][bk] = v[ci][cj][bk] + 1
                         q.append((ni, nj, bk, cnt + 1))
 
+
                 elif arr[ni][nj] == "1" and cnt % 2 == 0 and bk+1 <= k:
                     if v[ni][nj][bk+1] == 0 or v[ni][nj][bk + 1] > v[ci][cj][bk] + 1:
                         v[ni][nj][bk + 1] = v[ci][cj][bk] + 1
