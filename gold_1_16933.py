@@ -1,11 +1,15 @@
 from collections import deque
 from sys import stdin
 
-def bfs(si, sj):
+if __name__ == "__main__":
+    input = stdin.readline()
+    n, m, k = map(int, input().split())
+    arr = [list(map(int, input().strip())) for _ in range(n)]
+    MAX = float('inf')
     q = deque()
     v = [[[MAX] * (k + 1) for x in range(m)] for _ in range(n)]
-    v[si][sj][k] = 0
-    q.append((si, sj, 1, k))
+    v[0][0][k] = 0
+    q.append((0, 0, 1, k))
 
     result = MAX
     while q:
@@ -13,26 +17,21 @@ def bfs(si, sj):
         if ci == n - 1 and cj == m - 1:
             result = min(result, t)
             continue
+
         day = t % 2
         for di, dj in ((-1, 0), (1, 0), (0, -1), (0, 1)):
             ni, nj = ci + di, cj + dj
             if 0 <= ni < n and 0 <= nj < m:
 
-                if arr[ni][nj] == "0" and v[ni][nj][bk] > t:
+                if arr[ni][nj] == 0 and v[ni][nj][bk] > t:
                     v[ni][nj][bk] = t
-                    q.append((ni, nj, t+1,bk))
+                    q.append((ni, nj, t + 1, bk))
 
-                elif arr[ni][nj] == "1" and bk and v[ni][nj][bk-1] > t:
+                if arr[ni][nj] == 1 and bk and v[ni][nj][bk - 1] > t:
                     if day:
-                        v[ni][nj][bk-1] = t
-                        q.append((ni,nj,t+1,bk-1))
+                        v[ni][nj][bk - 1] = t
+                        q.append((ni, nj, t + 1, bk - 1))
                     else:
-                        q.append((ci, cj, t+1, bk))
+                        q.append((ci, cj, t + 1, bk))
 
-
-    print(result if result<MAX else -1)
-if __name__ == "__main__":
-    n, m, k = map(int, stdin.readline().split())
-    arr = [stdin.readline() for _ in range(n)]
-    MAX = 100000000000000000000000
-    bfs(0, 0)
+    print(result if result < MAX else -1)
