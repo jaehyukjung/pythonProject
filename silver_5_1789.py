@@ -11,3 +11,4 @@ if __name__ == "__main__":
     a, b = map(int, l.split())
     print(a + b)
     print(1)
+    print(2)
